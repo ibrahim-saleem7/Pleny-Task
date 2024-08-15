@@ -1,0 +1,34 @@
+.logo {
+  box-shadow: 0px 1px 2px 0px #1018280f;
+  box-shadow: 0px 1px 3px 0px #1018281a;
+  width: 32px;
+  height: 32px;
+  gap: 0px;
+  border-radius: 8px;
+  border: 0.2px solid #d0d5dd;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+linear-gradient(180deg, #FFFFFF 0%, #D0D5DD 100%);
+
+}
+.dot {
+  background-color: #41cccc;
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+}
+
+.grid{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.line-v {
+    width: 0.08px;
+    height: 32px;
+    background: #d0d5dd;
+
+}

@@ -1,0 +1,173 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: Inter;
+}
+
+:root {
+  --color-gray: #667085;
+  --color-gray-dark: #344054;
+  --color-main: #41cccc;
+  --color-main-hover: #85dfdf;
+  --color-footer: #1d2939;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  min-height: 100vh;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .col-12 {
+    width: 100%;
+  }
+  
+  .col-8 {
+    width: calc((100% / 12) * 8);
+  }
+  
+  .col-6 {
+    width: calc((100% / 2) - 32px); 
+  }
+  
+  .col-4 {
+    width: calc((100% / 4) - 32px); 
+  }
+  
+  .col-3 {
+    width: calc((100% / 3) - 32px); 
+  }
+  
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.container {
+  width: calc(100% - 64px);
+  padding: 0px 32px 0px 32px;
+  margin: auto;
+}
+
+.text-color-main {
+  color: var(--color-main);
+}
+.text-color-gray {
+  color: var(--color-gray);
+}
+.text-color-white {
+  color: white;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.btn-navigation {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-login {
+  font-family: Inter;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 38px;
+  margin: 10px 0;
+}
+
+.text-sub-login {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--color-gray);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-main {
+  background: var(--color-main);
+}
+
+.border-radius-8 {
+  border-radius: 8px;
+}
+
+.btn-login {
+  background-color: var(--color-main);
+  color: var(--color-gray-dark);
+  width: 100%;
+  border-radius: 8px;
+  transition: all 0.7s ease-in-out;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.btn-login:hover {
+  background-color: var(--color-main-hover);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+.vh-100 {
+  height: 100vh;
+}
+.vh-70 {
+  height: 70vh;
+}
+
+footer {
+  width: Fixed (1, 440px) px;
+  height: 128px;
+  top: 912px;
+  padding: 48px 0px 48px 0px;
+  gap: 64px;
+  opacity: 0px;
+  background-color: var(--color-footer);
+}
+
+
+.ml-10{
+  margin-left: 10px;
+}
