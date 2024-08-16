@@ -1,0 +1,21 @@
+<div class="pagination">
+  <button class="page-arrow" [disabled]="currentPage === 1" (click)="onPreviousClick()">
+    &lt;
+  </button>
+  <ng-container *ngFor="let page of pages">
+    <button
+      *ngIf="page !== '...'; else dots"
+      class="page-number"
+      [class.active]="currentPage === page"
+      (click)="onPageClick(page)"
+    >
+      {{ page }}
+    </button>
+    <ng-template #dots>
+      <span class="page-dots">{{ page }}</span>
+    </ng-template>
+  </ng-container>
+  <button class="page-arrow" [disabled]="currentPage === totalPages" (click)="onNextClick()">
+    &gt;
+  </button>
+</div>

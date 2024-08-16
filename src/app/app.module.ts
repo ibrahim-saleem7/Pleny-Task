@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { appReducers } from './state/app.reducer';
 import { rootEffects } from './state/app.effects';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
     EffectsModule.forRoot(rootEffects),
     AppRoutingModule,
     SharedModule,
+    RouterModule,
     HttpClientModule
   ],
   providers: [

@@ -1,0 +1,37 @@
+<div>
+  <div class="product-card">
+    <div class="product-header">
+      <div class="discount-badge pt-5 pb-5 pl-10 pr-10">-{{product.discountPercentage }}%</div>
+      <img
+        [src]="product.thumbnail"
+        alt="Product Image"
+        class="product-image"
+      />
+    </div>
+    <div class="product-details p-15">
+      <h3 class="product-title mb-10 mt-10">{{product.title | titlecase | truncate:50}}</h3>
+      <p class="product-description mt-8 mb-15">
+        {{product.description | titlecase | truncate:50}}
+      </p>
+      <div class="product-pricing mb-15 mt-15">
+        <span class="original-price mr-15"
+          ><span class="price">549 </span> USD</span
+        >
+        <span class="discounted-price"
+          ><span class="price">477.85</span> USD</span
+        >
+      </div>
+      <div class="product-meta mt-15 mb-15">
+        <p class="mb-8">Brand: <strong>{{product.brand | titlecase}}</strong></p>
+        <p class="mb-8">Category: <strong>{{product.category | titlecase}}</strong></p>
+        <p class="mb-8">In stock: <strong>94</strong></p>
+        <div class="text-right mb-15 mt-10">
+          <span class="star">⭐</span>
+          <span class="rating">{{product.rating}}</span>
+          <span class="rating-count ml-5">(11)</span>
+        </div>
+      </div>
+      <button class="add-to-cart-btn" (click)="addToCart()">ADD TO CART</button>
+    </div>
+  </div>
+</div>

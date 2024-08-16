@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subscription?.add(
       this.authService?.login(formData).subscribe({
         next: (res:ILoginResponse) => {
-          console.log(res);
+          this.authService.loginStatus(true);
           localStorage.setItem('authToken', res.token);
           this.loading = false;
           this.router.navigate(['/home']);

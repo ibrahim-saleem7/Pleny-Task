@@ -1,1 +1,44 @@
-<p>home works!</p>
+<section>
+  <div class="container">
+    <div class="mt-50">
+      <div class="p-10">
+        <h2 class="mb-30">iPhone</h2>
+        <ul class="mb-20">
+          <li>Home /</li>
+          <li>Products /</li>
+          <li><strong>{{categoryName | titlecase}}</strong> </li>
+        </ul>
+      </div>
+      <div class="row align-items-start justify-content-between mt-20">
+        <div class="col-3">
+          <div class="sidebar-content">
+            <app-sidebar (data)="getProductsByCategory($event)"></app-sidebar>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="row align-items-center justify-content-start">
+            <div class="col-12 mb-20">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-6">
+                        <p>({{products.length}}) Products Found</p>
+                    </div>
+                    <div class="col-6 text-right">
+                        <strong>Sort By:</strong>
+                        Popularity
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngFor="let item of products">
+              <div class="col-4 mb-20">
+                <app-card [data]="item"></app-card>
+              </div>
+            </ng-container>
+            <div class="col-12 mb-20 mt-20">
+                <app-pagination [pagination]="metaData" (pageChange)="onPageChange($event)"></app-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

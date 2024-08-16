@@ -1,20 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/variables';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-family: Inter;
 }
 
-:root {
-  --color-gray: #667085;
-  --color-gray-dark: #344054;
-  --color-main: #41cccc;
-  --color-main-hover: #85dfdf;
-  --color-footer: #1d2939;
-}
 
+img{
+  max-width: 100%;
+}
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -28,27 +25,44 @@
   flex-direction: row;
   flex-wrap: wrap;
 
-  .col-12 {
-    width: 100%;
+  @for $i from 1 through 12 {
+    .col-#{$i} {
+      width: calc((100% / 12) * #{$i});
+      padding: 0 10px;
+    }
   }
-  
-  .col-8 {
-    width: calc((100% / 12) * 8);
+
+  // Medium screens and up (e.g., tablets)
+  @media (min-width: 768px) {
+    @for $i from 1 through 12 {
+      .col-#{$i} {
+        width: calc((100% / 12) * #{$i});
+        padding: 0 10px;
+      }
+    }
   }
-  
-  .col-6 {
-    width: calc((100% / 2) - 32px); 
+
+  // Large screens and up (e.g., desktops)
+  @media (min-width: 1024px) {
+    @for $i from 1 through 12 {
+      .col-#{$i} {
+        width: calc((100% / 12) * #{$i});
+        padding: 0 10px;
+      }
+    }
   }
-  
-  .col-4 {
-    width: calc((100% / 4) - 32px); 
+
+  // Extra large screens and up (e.g., large desktops)
+  @media (min-width: 1200px) {
+    @for $i from 1 through 12 {
+      .col-#{$i} {
+        width: calc((100% / 12) * #{$i});
+        padding: 0 10px;
+      }
+    }
   }
-  
-  .col-3 {
-    width: calc((100% / 3) - 32px); 
-  }
-  
 }
+
 
 .d-flex {
   display: flex;
@@ -70,18 +84,44 @@
 .justify-content-end {
   justify-content: flex-end;
 }
+.justify-content-start {
+  justify-content: flex-start;
+}
 
 .container {
-  width: calc(100% - 64px);
-  padding: 0px 32px 0px 32px;
-  margin: auto;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
 }
 
+
 .text-color-main {
-  color: var(--color-main);
+  color: $color-main;
 }
 .text-color-gray {
-  color: var(--color-gray);
+  color: $color-gray;
 }
 .text-color-white {
   color: white;
@@ -113,7 +153,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  color: var(--color-gray);
+  color: $color-gray;
 }
 
 .text-center {
@@ -121,7 +161,7 @@
 }
 
 .bg-main {
-  background: var(--color-main);
+  background: $color-main;
 }
 
 .border-radius-8 {
@@ -129,8 +169,8 @@
 }
 
 .btn-login {
-  background-color: var(--color-main);
-  color: var(--color-gray-dark);
+  background-color: $color-main;
+  color: $color-gray-dark;
   width: 100%;
   border-radius: 8px;
   transition: all 0.7s ease-in-out;
@@ -140,7 +180,7 @@
 }
 
 .btn-login:hover {
-  background-color: var(--color-main-hover);
+  background-color: $color-main-hover;
 }
 
 .w-100 {
@@ -164,10 +204,61 @@ footer {
   padding: 48px 0px 48px 0px;
   gap: 64px;
   opacity: 0px;
-  background-color: var(--color-footer);
+  background-color: $color-footer;
+}
+
+@for $i from 1 through 50 {
+  .p-#{$i}{
+    padding: #{$i}px;
+  }
+  .m-#{$i} {
+    margin: #{$i}px;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}px;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+  .pl-#{$i} {
+    padding-left: #{$i}px;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}px;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}px;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+}
+
+.router-link-active {
+  font-weight: bold;
+  color: $color-main;
+}
+
+.link-navigation {
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 24px;
+  color: $color-gray;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    color: $color-main;
+  }
 }
 
 
-.ml-10{
-  margin-left: 10px;
+.text-right{
+  text-align: right;
 }
