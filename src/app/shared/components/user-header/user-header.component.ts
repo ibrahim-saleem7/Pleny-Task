@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
@@ -7,12 +7,12 @@ import { selectTotalQuantity } from 'src/app/state/cart/cart.selectors';
 import { loadProducts, searchProducts } from 'src/app/state/products/products.actions';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-user-header',
+  templateUrl: './user-header.component.html',
+  styleUrls: ['./user-header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-
+export class UserHeaderComponent implements OnInit  {
+  
   count$!: Observable<any>;
   userLogin : boolean = false
   keyword: string = ''

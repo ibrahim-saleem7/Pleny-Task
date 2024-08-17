@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import {   Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ICategory } from 'src/app/core/interfaces/category';
 import { IProduct } from 'src/app/core/interfaces/product';
@@ -10,8 +10,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit, OnDestroy {
-
+export class SidebarComponent implements OnInit,  OnDestroy {
 
   @Output('data') data: EventEmitter<object> = new EventEmitter<object>();
 
@@ -20,22 +19,20 @@ export class SidebarComponent implements OnInit, OnDestroy {
   categories: ICategory[] = []
   products: IProduct[] = []
 
-  constructor(private categoriesService: CategoriesService) { }
-
-
+  constructor(
+    private categoriesService: CategoriesService,
+  ) { }
+  
   ngOnInit(): void {
     this.getCategories()
-    this.data.emit({url:this.utlAllProducts,name:'All Products'});
+    this.data.emit({ url: this.utlAllProducts, name: 'All Products' });
   }
-
 
   getCategories() {
     this.subscription.add(
       this.categoriesService.getCategories().subscribe({
         next: (data) => {
           this.categories = data;
-          console.log(data);
-          
         },
         error: (err) => {
           console.log(err);
@@ -44,15 +41,13 @@ export class SidebarComponent implements OnInit, OnDestroy {
     )
   }
 
-
-  getProductsByCategory(url: string,name:string) {
-    this.data.emit({url:url,name});
+  getProductsByCategory(url: string, name: string) {
+    this.data.emit({ url: url, name });
   }
 
   trackByCategory(_index: number, category: ICategory): string {
     return category.slug;
   }
-
 
   unsubscribeAll(): void {
     this.subscription?.unsubscribe();
@@ -61,6 +56,5 @@ export class SidebarComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribeAll();
   }
-
 
 }

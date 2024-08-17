@@ -2,23 +2,31 @@
   <p>Products</p>
   <div class="categories">
     <form>
-      <div>
         <label for="all">
-          <input type="radio" id="all" name="category" [value]="utlAllProducts" checked (click)="getProductsByCategory(utlAllProducts,'All Products')"/>
-          All (240)
+          <input
+            type="radio"
+            id="all"
+            name="category"
+            [value]="utlAllProducts"
+            checked
+            (click)="getProductsByCategory(utlAllProducts, 'All Products')"
+          />
+          All
         </label>
-      </div>
-      <ng-container *ngFor="let category of categories; trackBy: trackByCategory">
-        <div>
-          <label [for]="category.slug">
-            <input type="radio" [id]="category.slug" name="category" [value]="{url: category.url, name: category.name}" (click)="getProductsByCategory(category.url,category.name)"/>
-            {{category.name}}
-          </label>
-        </div>
+      <ng-container
+        *ngFor="let category of categories; trackBy: trackByCategory"
+      >
+        <label [for]="category?.slug">
+            <input
+              type="radio"
+              [id]="category?.slug"
+              name="category"
+              [value]="{ url: category?.url, name: category?.name }"
+              (click)="getProductsByCategory(category.url, category.name)"
+            />
+            {{ category?.name }}
+        </label>
       </ng-container>
-      
     </form>
   </div>
 </div>
-
-<style></style>

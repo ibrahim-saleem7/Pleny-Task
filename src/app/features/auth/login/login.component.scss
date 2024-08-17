@@ -1,50 +1,49 @@
+@import "variables";
+
 .content {
   margin: 20px 0;
 }
 
 .login {
   width: 360px;
-  margin: auto;
 }
 
 label {
-  font-family: Inter;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  text-align: left;
   margin-bottom: 5px;
   display: block;
 }
 
-input{
-    background: #FFFFFF;
-    border: 1px solid #D0D5DD;
-    box-shadow: 0px 1px 2px 0px #1018280D;
-    padding: 10px 14px 10px 14px;
-    width: 100%;
-    transition: all 0.4s ease-in-out;
+input {
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  box-shadow: 0px 1px 2px 0px #1018280d;
+  padding: 10px 14px 10px 14px;
+  width: 100%;
+  transition: all 0.4s ease-in-out;
 }
 
-input:focus-visible{
-    outline: none;
-    border: 1px solid #6a6e73cc;
+input:focus-visible {
+  outline: none;
+  border: 1px solid $color-border-visible;
 }
 
-.field{
-    margin: 15px 0;
+.field {
+  margin: 15px 0;
 }
 
-.error-message{
-    background-color: #c41e128e;
-    border-radius: 8px;
-    padding: 10px;
-    color: #fff;
+.error-message {
+  background-color: #c41e128e;
+  border-radius: 8px;
+  padding: 10px;
+  color: #fff;
 }
 
-.text-danger{
-    color: #c41e12;
-    margin-top: 5px;
-    font-size: 14px;
-    padding: 0 10px;
+.text-danger {
+  color: #c41e12;
+  margin-top: 5px;
+  font-size: 14px;
+  padding: 0 10px;
 }

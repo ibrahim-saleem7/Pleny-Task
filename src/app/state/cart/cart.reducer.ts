@@ -16,8 +16,8 @@ export const cartReducer = createReducer(
     ...state,
     cart: cart,
   })),
-  on(CartActions.addToCart, (state, { product, quantity }) => {
-    const updatedItems = [...state.cart, { ...product, quantity }];
+  on(CartActions.addToCart, (state, { product }) => {
+    const updatedItems = [...state.cart, { ...product }];
 
     return {
       ...state,

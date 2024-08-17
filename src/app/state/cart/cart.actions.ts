@@ -10,9 +10,7 @@ export const loadCartFailure = createAction(
   '[Cart] Load Cart Failure',
   props<{ error: string }>()
 );
-
-
 export const addToCart = createAction(
   '[Cart] Add to Cart',
-  props<{ product: IProduct, quantity: number }>()
+  props<{ product: IProduct}>()
 );

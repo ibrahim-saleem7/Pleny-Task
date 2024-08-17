@@ -1,3 +1,5 @@
+@import "variables";
+
 .product-card {
   max-width: 282px;
   border-radius: 8px;
@@ -5,27 +7,26 @@
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 
-  &:hover{
+  &:hover {
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
 
-
 .product-title {
   font-size: 20px;
   height: 50px;
-  color: #344054;
+  color: $color-gray-dark;
 }
 
 .product-description {
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
-  color: #344054;
+  color: $color-gray-dark;
 }
 
 .price {
-  color: #344054;
+  color: $color-gray-dark;
   font-size: 14px;
   font-weight: 700;
 }
@@ -44,13 +45,13 @@
   p {
     font-size: 14px;
     font-weight: 400;
-    color: #344054;
+    color: $color-gray-dark;
   }
   strong {
     font-size: 14px;
     font-weight: 600;
     line-height: 16.94px;
-    color: #344054;
+    color: $color-gray-dark;
   }
 }
 
@@ -63,7 +64,7 @@
 }
 
 .rating-count {
-  color: #1e1e1e;
+  color: $color-text;
   font-weight: 400;
   line-height: 21.79px;
   opacity: 0.5;
@@ -71,8 +72,8 @@
 .add-to-cart-btn {
   width: 100%;
   padding: 15px;
-  background-color: #3dc6c1;
-  color: #344054;
+  background-color: $color-main;
+  color: $color-gray-dark;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -84,25 +85,24 @@
 }
 
 .add-to-cart-btn:hover {
-  background-color: #35b0ab;
+  background-color: $color-main-hover;
 }
 .product-header {
   position: relative;
   height: 258px;
-  img{
+  img {
     height: 100%;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
   }
 }
 
-
 .discount-badge {
   position: absolute;
   top: 10px;
   left: 10px;
-  background-color: #3dc6c1;
-  color: #344054;
+  background-color: $color-main;
+  color: $color-gray-dark;
   border-radius: 5px;
   font-size: 12px;
   font-weight: 700;

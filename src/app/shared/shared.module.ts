@@ -9,6 +9,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardComponent } from './components/card/card.component';
 import { CoreModule } from '../core/core.module';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
+import { BarsComponent } from './components/bars/bars.component';
+import { UserHeaderComponent } from './components/user-header/user-header.component';
 
 
 
@@ -20,12 +23,15 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     LogoComponent,
     SidebarComponent,
     CardComponent,
-    PaginationComponent
+    PaginationComponent,
+    BarsComponent,
+    UserHeaderComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
@@ -34,7 +40,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     FooterComponent,
     SidebarComponent,
     CardComponent,
-    PaginationComponent
+    PaginationComponent,
+    BarsComponent,
+    UserHeaderComponent
   ]
 })
 export class SharedModule { }

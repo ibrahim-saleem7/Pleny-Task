@@ -19,10 +19,6 @@ export class AuthService {
       catchError(handleError)
     );
   }
-  logout(): void {
-    localStorage.removeItem('authToken');
-    this.isLoggedIn.next(false);
-  }
   loginStatus(status: boolean): void {
     this.isLoggedIn.next(status);
   }

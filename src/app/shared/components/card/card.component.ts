@@ -23,9 +23,7 @@ export class CardComponent implements OnChanges {
   }
 
   addToCart(){
-    this.store.dispatch(addToCart({product: this.product, quantity: 1}))
-    console.log("added to cart");
-    
+    this.store.dispatch(addToCart({product: this.product}))    
   }
 
 

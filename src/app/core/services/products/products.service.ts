@@ -10,11 +10,17 @@ import { handleError } from 'src/app/utils/handle-error';
 })
 export class ProductsService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getAll(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(environment.apiUrl).pipe(
-      catchError(handleError) 
+  getAllProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(environment.apiUrl + '/products').pipe(
+      catchError(handleError)
+    );
+  }
+
+  search(keyword: string): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(environment.apiUrl + `/products/search?q=${keyword}`).pipe(
+      catchError(handleError)
     );
   }
 

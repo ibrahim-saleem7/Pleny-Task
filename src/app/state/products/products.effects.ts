@@ -11,11 +11,23 @@ export class ProductsEffects {
   loadProducts$ = createEffect(() =>
     this.actions$.pipe(
       ofType(ProductsActions.loadProducts),
-      mergeMap(() => this.productsService.getAll()
-        .pipe(
-          map(products => ProductsActions.loadProductsSuccess({ products })),
-          catchError(error => of(ProductsActions.loadProductsFailure({ error: error.message })))
-        ))
+      mergeMap(() =>
+        this.productsService.getAllProducts().pipe( 
+          map((products) => ProductsActions.loadProductsSuccess({ products })),
+          catchError((error) => of(ProductsActions.loadProductsFailure({ error })))
+        )
+      )
+    )
+  );
+  searchProducts$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductsActions.searchProducts),
+      mergeMap((action) =>
+        this.productsService.search(action.keyword).pipe(
+          map((products) => ProductsActions.searchProductsSuccess({ products })),
+          catchError((error) => of(ProductsActions.searchProductsFailure({ error })))
+        )
+      )
     )
   );
 

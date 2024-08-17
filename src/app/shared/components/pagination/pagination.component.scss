@@ -1,16 +1,19 @@
+@import "variables";
+
 .pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
 
-  .page-number, .page-arrow {
+  .page-number,
+  .page-arrow {
     width: 40px;
     height: 40px;
     border-radius: 8px;
     border: 1px solid #e5e5e5;
     background-color: #ffffff;
-    color: #333;
+    color: $color-text;
     font-size: 16px;
     font-weight: 500;
     display: flex;
@@ -20,8 +23,8 @@
     transition: background-color 0.3s, color 0.3s;
 
     &.active {
-      background-color: #36d7d4;
-      color: #ffffff;
+      background-color: $color-main;
+      color: $color-text;
     }
 
     &:hover:not(.active) {
@@ -36,6 +39,6 @@
 
   .page-dots {
     font-size: 16px;
-    color: #333;
+    color: $color-text;
   }
 }

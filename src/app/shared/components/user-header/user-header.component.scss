@@ -1,11 +1,6 @@
 @import 'variables';
 
-
-header {
-  width: 100%;
-  height: 80px;
-
-  .search-bar {
+.search-bar {
     position: relative;
 
     input {
@@ -30,6 +25,8 @@ header {
       top: 10px;
     }
   }
+
+
   .cart {
     position: relative;
 
@@ -53,4 +50,3 @@ header {
       }
     }
   }
-}

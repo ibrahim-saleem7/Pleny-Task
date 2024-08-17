@@ -11,17 +11,17 @@ import { IProduct } from '../../interfaces/product';
 })
 export class CategoriesService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCategories(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(environment.apiUrl + '/products/categories').pipe(
-      catchError(handleError) 
+      catchError(handleError)
     );
   }
-  getProductsByCategory(url: string,skip:number): Observable<IProduct[]> {
-    const skipItems = skip ? `&skip=${skip}` : '';    
+  getProductsByCategory(url: string, skip: number): Observable<IProduct[]> {
+    const skipItems = skip ? `&skip=${skip}` : '';
     return this.http.get<IProduct[]>(url + `?limit=10${skipItems}`).pipe(
-      catchError(handleError) 
+      catchError(handleError)
     );
   }
 }

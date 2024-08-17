@@ -6,5 +6,5 @@ export const selectCartState = (state: AppState) => state.cart
 
 export const selectTotalQuantity = createSelector(
   selectCartState,
-  (state: CartState) => state.cart.length
+  (state: CartState) => state?.cart?.length
 );

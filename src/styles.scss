@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'assets/scss/variables';
+@import "assets/scss/variables";
 
 * {
   margin: 0;
@@ -8,23 +8,43 @@
   font-family: Inter;
 }
 
+main {
+  position: relative;
+  overflow: hidden;
+}
 
-img{
+img {
   max-width: 100%;
 }
 .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex-wrap: nowrap;
   min-height: 100vh;
 }
 
-.row {
+.row,
+.d-flex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow: hidden;
 
+  &.justify-content-between {
+    justify-content: space-between;
+  }
+  &.align-items-center {
+    align-items: center;
+  }
+  &.justify-content-center {
+    justify-content: center;
+  }
+  &.justify-content-end {
+    justify-content: flex-end;
+  }
+  &.justify-content-start {
+    justify-content: flex-start;
+  }
   @for $i from 1 through 12 {
     .col-#{$i} {
       width: calc((100% / 12) * #{$i});
@@ -32,60 +52,84 @@ img{
     }
   }
 
-  // Medium screens and up (e.g., tablets)
+  @media (min-width: 576px) {
+    @for $i from 1 through 12 {
+      .col-sm-#{$i} {
+        width: calc((100% / 12) * #{$i});
+      }
+    }
+  }
   @media (min-width: 768px) {
     @for $i from 1 through 12 {
-      .col-#{$i} {
+      .col-md-#{$i} {
         width: calc((100% / 12) * #{$i});
-        padding: 0 10px;
       }
     }
-  }
+    &.justify-content-md-between {
+      justify-content: space-between;
+    }
 
-  // Large screens and up (e.g., desktops)
-  @media (min-width: 1024px) {
+    &.align-items-md-center {
+      align-items: center;
+    }
+
+    &.justify-content-md-center {
+      justify-content: center;
+    }
+
+    &.justify-content-md-end {
+      justify-content: flex-end;
+    }
+    &.justify-content-md-start {
+      justify-content: flex-start;
+    }
+  }
+  @media (min-width: 992px) {
     @for $i from 1 through 12 {
-      .col-#{$i} {
+      .col-lg-#{$i} {
         width: calc((100% / 12) * #{$i});
-        padding: 0 10px;
+      }
+      &.justify-content-lg-between {
+        justify-content: space-between;
+      }
+
+      &.align-items-lg-center {
+        align-items: center;
+      }
+
+      &.justify-content-lg-center {
+        justify-content: center;
+      }
+
+      &.justify-content-lg-end {
+        justify-content: flex-end;
+      }
+      &.justify-content-lg-start {
+        justify-content: flex-start;
       }
     }
   }
-
-  // Extra large screens and up (e.g., large desktops)
   @media (min-width: 1200px) {
     @for $i from 1 through 12 {
-      .col-#{$i} {
+      .col-xl-#{$i} {
         width: calc((100% / 12) * #{$i});
-        padding: 0 10px;
       }
     }
   }
 }
 
-
-.d-flex {
-  display: flex;
-  flex-wrap: wrap;
+.sidebar-toggable {
+  position: absolute;
+  right: -100%;
 }
 
-.justify-content-between {
-  justify-content: space-between;
-}
-
-.align-items-center {
-  align-items: center;
-}
-
-.justify-content-center {
-  justify-content: center;
-}
-
-.justify-content-end {
-  justify-content: flex-end;
-}
-.justify-content-start {
-  justify-content: flex-start;
+.sidebar-toggable-open {
+  right: 0 !important;
+  background: #e7e7e7;
+  padding: 50px;
+  z-index: 1;
+  top: 15px;
+  border-radius: 8px;
 }
 
 .container {
@@ -94,6 +138,40 @@ img{
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+
+  .bars {
+    display: block;
+  }
+  .d-responsive {
+    display: block;
+  }
+  .sidebar-responsive {
+    position: absolute;
+    right: -100%;
+  }
+  .sidebar-desktop{
+    display: none;
+  }
+  .d-desktop {
+    display: none;
+  }
+
+  .sidebar-responsive.sidebar-toggable.sidebar-toggable-open {
+    width: 100%;
+    height: 100%;
+    #user-header{
+      display: block;
+    }
+
+    .w-r-100 {
+      width: 100%;
+      margin: 10px 0;
+
+      .justify-content-end {
+        justify-content: center;
+      }
+    }
+  }
 
   @media (min-width: 576px) {
     max-width: 540px;
@@ -105,6 +183,24 @@ img{
 
   @media (min-width: 992px) {
     max-width: 960px;
+    .bars {
+      display: none;
+    }
+    .d-responsive {
+      display: none;
+    }
+    .d-desktop {
+      display: flex;
+    }
+    .sidebar-desktop{
+      display: block;
+    }
+    .sidebar-responsive {
+      position: static;
+    }
+    .sidebar-toggable {
+      display: none;
+    }
   }
 
   @media (min-width: 1200px) {
@@ -115,7 +211,6 @@ img{
     max-width: 1320px;
   }
 }
-
 
 .text-color-main {
   color: $color-main;
@@ -141,7 +236,6 @@ img{
 }
 
 .text-login {
-  font-family: Inter;
   font-size: 30px;
   font-weight: 600;
   line-height: 38px;
@@ -149,7 +243,6 @@ img{
 }
 
 .text-sub-login {
-  font-family: Inter;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -193,22 +286,15 @@ img{
 .vh-100 {
   height: 100vh;
 }
-.vh-70 {
-  height: 70vh;
+.vh-60 {
+  height: 60vh;
 }
-
-footer {
-  width: Fixed (1, 440px) px;
-  height: 128px;
-  top: 912px;
-  padding: 48px 0px 48px 0px;
-  gap: 64px;
-  opacity: 0px;
-  background-color: $color-footer;
+.mt-auto {
+  margin-top: auto;
 }
 
 @for $i from 1 through 50 {
-  .p-#{$i}{
+  .p-#{$i} {
     padding: #{$i}px;
   }
   .m-#{$i} {
@@ -258,7 +344,6 @@ footer {
   }
 }
 
-
-.text-right{
+.text-right {
   text-align: right;
 }

@@ -6,21 +6,29 @@
         <ul class="mb-20">
           <li>Home /</li>
           <li>Products /</li>
+          
           <li><strong>{{categoryName | titlecase}}</strong> </li>
         </ul>
       </div>
-      <div class="row align-items-start justify-content-between mt-20">
-        <div class="col-3">
-          <div class="sidebar-content">
-            <app-sidebar (data)="getProductsByCategory($event)"></app-sidebar>
+      <div class="row align-items-start justify-content-center  mt-20">
+        <div class="col-lg-3">
+          <div class="sidebar-content ">
+            <div class="sidebar-responsive sidebar-desktop">
+              <app-sidebar (data)="getProductsByCategory($event)"></app-sidebar>
+            </div>
+            <div class="sidebar-responsive sidebar-toggable" id="sidebar">
+              <app-sidebar (data)="getProductsByCategory($event)"></app-sidebar>
+              <app-user-header></app-user-header>
+            </div>
           </div>
+
         </div>
-        <div class="col-9">
-          <div class="row align-items-center justify-content-start">
+        <div class="col-10 col-lg-9">
+          <div class="row align-items-center justify-content-center justify-content-md-between">
             <div class="col-12 mb-20">
                 <div class="row align-items-center justify-content-between">
                     <div class="col-6">
-                        <p>({{products.length}}) Products Found</p>
+                        <p *ngIf="products">({{products.length}}) Products Found</p>
                     </div>
                     <div class="col-6 text-right">
                         <strong>Sort By:</strong>
@@ -29,7 +37,7 @@
                 </div>
             </div>
             <ng-container *ngFor="let item of products">
-              <div class="col-4 mb-20">
+              <div class="col-12 col-md-6 col-xl-4 mb-20">
                 <app-card [data]="item"></app-card>
               </div>
             </ng-container>
